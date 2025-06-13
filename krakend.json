@@ -6,7 +6,60 @@
   "disable_keep_alives" : false,
   "disable_rest" : false,
   "echo_endpoint" : false,
-  "endpoints" : [ ],
+  "endpoints" : [ {
+    "backend" : [ {
+      "allow" : [ ],
+      "deny" : [ ],
+      "encoding" : "json",
+      "group" : "",
+      "host" : [ "https://qa-dev-ieia.apiwiz.io" ],
+      "mapping" : {
+        "" : ""
+      },
+      "method" : "GET",
+      "sd" : "static",
+      "target" : "",
+      "disable_host_sanitize" : false,
+      "extra_config" : { },
+      "input_headers" : [ ],
+      "input_query_strings" : [ ],
+      "is_collection" : false,
+      "sd_scheme" : "http",
+      "url_pattern" : "/start-krakend"
+    } ],
+    "cache_ttl" : "0ms",
+    "concurrent_calls" : 1,
+    "endpoint" : "/start-krakend",
+    "extra_config" : {
+      "modifier/lua-proxy" : {
+        "pre" : "print('Hi from post!'); proxy_pre(request)",
+        "allow_open_libs" : false,
+        "post" : "print('Hi from post!'); proxy_post(response)",
+        "sources" : [ "/Users/sujithkumar/Downloads/demo/src/main/java/com/example/demo/demo.lua" ],
+        "skip_next" : false,
+        "live" : false
+      },
+      "modifier/lua-backend" : {
+        "pre" : "print('Hi from pre!'); proxy_pre(request)",
+        "allow_open_libs" : false,
+        "post" : "print('Hi from post!'); proxy_post(response)",
+        "sources" : [ "/Users/sujithkumar/Downloads/demo/src/main/java/com/example/demo/demo.lua" ],
+        "skip_next" : false,
+        "live" : false
+      },
+      "modifier/lua-endpoint" : {
+        "pre" : "print('Hi from pre!'); endpoint(ctx)",
+        "allow_open_libs" : false,
+        "skip_next" : false,
+        "live" : false
+      }
+    },
+    "input_headers" : [ ],
+    "input_query_strings" : [ ],
+    "method" : "GET",
+    "output_encoding" : "json",
+    "timeout" : "2s"
+  } ],
   "extra_config" : { },
   "listen_ip" : "0.0.0.0",
   "max_header_bytes" : 0,
