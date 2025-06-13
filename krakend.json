@@ -44,6 +44,20 @@
       "allow_methods" : [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ],
       "options_success_status" : 204,
       "allow_credentials" : true
+    },
+    "security/http" : {
+      "ssl_host" : "ssl.host.domain",
+      "referrer_policy" : "same-origin",
+      "browser_xss_filter" : false,
+      "content_type_nosniff" : false,
+      "frame_deny" : false,
+      "ssl_redirect" : false,
+      "sts_include_subdomains" : false,
+      "allowed_hosts_are_regex" : false,
+      "sts_seconds" : 0,
+      "allowed_hosts" : [ "localhost:8080" ],
+      "force_sts_header" : false,
+      "is_development" : false
     }
   },
   "listen_ip" : "0.0.0.0",
