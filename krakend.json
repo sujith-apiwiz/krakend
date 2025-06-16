@@ -6,7 +6,43 @@
   "disable_keep_alives" : false,
   "disable_rest" : false,
   "echo_endpoint" : false,
-  "endpoints" : [ ],
+  "endpoints" : [ {
+    "backend" : [ {
+      "allow" : [ ],
+      "deny" : [ ],
+      "encoding" : "json",
+      "group" : "",
+      "host" : [ "https://qa-dev-ieia.apiwiz.io" ],
+      "mapping" : {
+        "" : ""
+      },
+      "method" : "GET",
+      "sd" : "static",
+      "target" : "",
+      "disable_host_sanitize" : false,
+      "extra_config" : { },
+      "input_headers" : [ ],
+      "input_query_strings" : [ ],
+      "is_collection" : false,
+      "sd_scheme" : "http",
+      "url_pattern" : "/start-krakend"
+    } ],
+    "cache_ttl" : "0ms",
+    "concurrent_calls" : 1,
+    "endpoint" : "/start-krakend",
+    "extra_config" : {
+      "security/bot-detector" : {
+        "allow" : [ "MyAndroidClient/1.0" ],
+        "empty_user_agent_is_bot" : true,
+        "deny" : [ "facebookexternalhit/1.1" ]
+      }
+    },
+    "input_headers" : [ ],
+    "input_query_strings" : [ ],
+    "method" : "GET",
+    "output_encoding" : "json",
+    "timeout" : "2s"
+  } ],
   "extra_config" : { },
   "listen_ip" : "0.0.0.0",
   "max_header_bytes" : 0,
